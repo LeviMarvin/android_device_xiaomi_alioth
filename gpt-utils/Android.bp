@@ -1,0 +1,28 @@
+cc_library {
+    name: "libgptutils",
+    vendor: true,
+    recovery_available: true,
+    srcs: [
+        "gpt-utils.cpp",
+        "recovery-ufs-bsg.cpp",
+    ],
+    static_libs: [
+            "libbase",
+            "libedify",
+    ],
+    shared_libs: [
+            "libcutils",
+            "liblog",
+            "libz",
+    ],
+    cflags: [
+        "-Wall",
+        "-Werror",
+        "-Wno-unused-parameter",
+    ],
+    owner: "qti",
+    export_include_dirs: ["."],
+    header_libs: [
+            "generated_kernel_headers",
+    ],
+}
