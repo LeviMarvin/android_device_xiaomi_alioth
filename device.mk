@@ -83,3 +83,6 @@ PRODUCT_COPY_FILES += \
 
 # VNDK
 PRODUCT_TARGET_VNDK_VERSION := 30
+
+# Inherit from vendor blobs
+$(call inherit-product, vendor/xiaomi/alioth/alioth-vendor.mk)
