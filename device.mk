@@ -73,9 +73,6 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES_DEBUG += \
     update_engine_client \
 
-PRODUCT_HOST_PACKAGES += \
-    brillo_update_payload \
-
 # Vendor boot
 # Vendor boot: Copy the fstab file to vendor ramdisk
 PRODUCT_COPY_FILES += \

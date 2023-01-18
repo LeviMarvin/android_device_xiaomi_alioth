@@ -31,6 +31,13 @@ TARGET_2ND_CPU_VARIANT_RUNTIME := kryo385
 # Bootloader: Set bootloader name
 TARGET_BOOTLOADER_BOARD_NAME := kona
 
+# Build
+#BUILD_BROKEN_DUP_RULES := true
+BUILD_BROKEN_ELF_PREBUILT_PRODUCT_COPY_FILES := true
+#BUILD_BROKEN_VENDOR_PROPERTY_NAMESPACE := true
+#BUILD_BROKEN_MISSING_REQUIRED_MODULES := true
+#BUILD_BROKEN_ENFORCE_SYSPROP_OWNER := true
+
 # Kernel
 # Kernel: Set the version of kernel header for supporting vendor_boot partition.
 BOARD_BOOT_HEADER_VERSION := 3
@@ -39,13 +46,12 @@ BOARD_KERNEL_BINARIES := kernel
 # Kernel: Set command lines.
 BOARD_KERNEL_CMDLINE := console=ttyMSM0,115200n8 androidboot.hardware=qcom
 BOARD_KERNEL_CMDLINE += androidboot.console=ttyMSM0 androidboot.memcg=1
+BOARD_KERNEL_CMDLINE += ramoops_memreserve=4M reboot=panic_warm
+BOARD_KERNEL_CMDLINE += androidboot.init_fatal_reboot_target=recovery
 BOARD_KERNEL_CMDLINE += lpm_levels.sleep_disabled=1
-BOARD_KERNEL_CMDLINE += msm_rtb.filter=0x237 service_locator.enable=1
-BOARD_KERNEL_CMDLINE += androidboot.usbcontroller=a600000.dwc3 swiotlb=0
+BOARD_KERNEL_CMDLINE += msm_rtb.filter=0x237 earlycon=msm_geni_serial,0xa90000
+BOARD_KERNEL_CMDLINE += androidboot.usbcontroller=a600000.dwc3 swiotlb=2048
 BOARD_KERNEL_CMDLINE += loop.max_part=7 cgroup.memory=nokmem,nosocket
-BOARD_KERNEL_CMDLINE += pcie_ports=compat loop.max_part=7
-BOARD_KERNEL_CMDLINE += iptable_raw.raw_before_defrag=1
-BOARD_KERNEL_CMDLINE += ip6table_raw.raw_before_defrag=1
 BOARD_KERNEL_CMDLINE += androidboot.selinux=permissive
 # Kernel: Specify kernel image filename.
 BOARD_KERNEL_IMAGE_NAME := Image
