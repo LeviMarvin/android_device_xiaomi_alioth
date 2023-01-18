@@ -34,6 +34,14 @@ PRODUCT_PACKAGES_DEBUG += \
 PRODUCT_PACKAGES += \
     init.recovery.qcom.rc
 
+# e2fsprogs
+PRODUCT_PACKAGES += \
+    mke2fs \
+    e2fsck \
+    resize2fs \
+    tune2fs \
+    debugfs
+
 # fastbootd
 PRODUCT_PACKAGES += \
     android.hardware.fastboot@1.0-impl-mock \
@@ -45,13 +53,9 @@ PRODUCT_PACKAGES += \
     f2fs_io \
     check_f2fs
 
-# e2fsprogs
+# Fstab
 PRODUCT_PACKAGES += \
-    mke2fs \
-    e2fsck \
-    resize2fs \
-    tune2fs \
-    debugfs
+    fstab.qcom_ramdisk
 
 # Partitions
 # Partitions: Specify using dynamic partitions.
