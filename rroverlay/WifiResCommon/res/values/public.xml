@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <public type="bool" name="config_vendorWifi11axReadySupport" id="0x7f010000" />
+    <public type="bool" name="config_vendor_wifi_softap_owe_supported" id="0x7f010001" />
+    <public type="bool" name="config_wifi5ghzSupport" id="0x7f010002" />
+    <public type="bool" name="config_wifiAllowMultipleNetworksOnSameAwareNdi" id="0x7f010003" />
+    <public type="bool" name="config_wifiBridgedSoftApSupported" id="0x7f010004" />
+    <public type="bool" name="config_wifiSoftap6ghzSupported" id="0x7f010005" />
+    <public type="bool" name="config_wifiSoftapAcsIncludeDfs" id="0x7f010006" />
+    <public type="bool" name="config_wifiSoftapAutoUpgradeToBridgedConfigWhenSupported" id="0x7f010007" />
+    <public type="bool" name="config_wifi_background_scan_support" id="0x7f010008" />
+    <public type="bool" name="config_wifi_batched_scan_supported" id="0x7f010009" />
+    <public type="bool" name="config_wifi_connected_mac_randomization_supported" id="0x7f01000a" />
+    <public type="bool" name="config_wifi_only_link_same_credential_configurations" id="0x7f01000b" />
+    <public type="bool" name="config_wifi_p2p_mac_randomization_supported" id="0x7f01000c" />
+    <public type="bool" name="config_wifi_report_he_ready" id="0x7f01000d" />
+    <public type="bool" name="config_wifi_softap_acs_supported" id="0x7f01000e" />
+    <public type="bool" name="config_wifi_softap_ieee80211ac_supported" id="0x7f01000f" />
+    <public type="bool" name="config_wifi_softap_sae_supported" id="0x7f010010" />
+    <public type="integer" name="config_wifiDelayDisconnectOnImsLostMs" id="0x7f020000" />
+    <public type="integer" name="config_wifiHardwareSoftapMaxClientCount" id="0x7f020001" />
+    <public type="string" name="config_wifiSoftap2gChannelList" id="0x7f030000" />
+    <public type="string" name="config_wifiSoftap5gChannelList" id="0x7f030001" />
+    <public type="string" name="config_wifiSoftap6gChannelList" id="0x7f030002" />
+
+    <!-- AospWifiResOverlay -->
+    <public type="array" name="config_wifiDisconnectedScanIntervalScheduleSec" id="0x7f010000" />
+    <public type="bool" name="config_wifi11axSupportOverride" id="0x7f020000" />
+    <public type="bool" name="config_wifiEnableLinkedNetworkRoaming" id="0x7f020001" />
+    <public type="bool" name="config_wifiMultiStaMultiInternetConcurrencyEnabled" id="0x7f020002" />
+    <public type="bool" name="config_wifiSoftapAutoAppendLowerBandsToBandConfigurationEnabled" id="0x7f020003" />
+    <public type="bool" name="config_wifiSoftapIeee80211axSupported" id="0x7f020004" />
+    <public type="bool" name="config_wifi_softap_sae_supported" id="0x7f020005" />
+    <public type="string" name="config_wifi_tcp_buffers" id="0x7f030000" />
+</resources>

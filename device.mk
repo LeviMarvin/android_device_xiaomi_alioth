@@ -70,6 +70,10 @@ PRODUCT_BUILD_SUPER_PARTITION := false
 # Properties
 TARGET_VENDOR_PROP += $(DEVICE_PATH)/vendor.prop
 
+# Runtime Resources Overlay
+PRODUCT_PACKAGES += \
+    WifiResCommon \
+
 # Soong namespaces
 PRODUCT_SOONG_NAMESPACES += \
     $(LOCAL_PATH)
