@@ -142,9 +142,9 @@ BOARD_AVB_VBMETA_SYSTEM_ROLLBACK_INDEX_LOCATION := 1
 
 # VINTF
 DEVICE_FRAMEWORK_COMPATIBILITY_MATRIX_FILE += \
-    vintf/framework_compatibility_matrix.xml
-DEVICE_MANIFEST_FILE += vintf/manifests.xml
-DEVICE_MATRIX_FILE += vintf/compatibility_matrix.xml
+    $(DEVICE_PATH)/vintf/framework_compatibility_matrix.xml
+DEVICE_MANIFEST_FILE += $(DEVICE_PATH)/vintf/manifests.xml
+DEVICE_MATRIX_FILE += $(DEVICE_PATH)/vintf/compatibility_matrix.xml
 
 # VNDK
 BOARD_VNDK_VERSION := current
