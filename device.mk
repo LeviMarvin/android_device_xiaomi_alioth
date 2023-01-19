@@ -67,6 +67,9 @@ PRODUCT_USE_DYNAMIC_PARTITIONS := true
 # Partitions: Do NOT compile the super partition.
 PRODUCT_BUILD_SUPER_PARTITION := false
 
+# Properties
+TARGET_VENDOR_PROP += $(DEVICE_PATH)/vendor.prop
+
 # Soong namespaces
 PRODUCT_SOONG_NAMESPACES += \
     $(LOCAL_PATH)
