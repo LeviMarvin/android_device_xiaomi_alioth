@@ -7,6 +7,8 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/virtual_ab_ota.mk)
 # Enable Dalvik
 $(call inherit-product, frameworks/native/build/phone-xhdpi-6144-dalvik-heap.mk)
 
+DEVICE_PATH := device/xiaomi/alioth
+
 # API (Android 11)
 PRODUCT_SHIPPING_API_LEVEL := 30
 
@@ -73,6 +75,12 @@ TARGET_VENDOR_PROP += $(DEVICE_PATH)/vendor.prop
 # Runtime Resources Overlay
 PRODUCT_PACKAGES += \
     WifiResCommon \
+
+# SEPolicy
+include device/qcom/sepolicy_vndr-legacy-um/SEPolicy.mk
+SYSTEM_EXT_PRIVATE_SEPOLICY_DIRS += $(DEVICE_PATH)/sepolicy/private
+SYSTEM_EXT_PUBLIC_SEPOLICY_DIRS += $(DEVICE_PATH)/sepolicy/public
+BOARD_VENDOR_SEPOLICY_DIRS += $(DEVICE_PATH)/sepolicy/vendor
 
 # Soong namespaces
 PRODUCT_SOONG_NAMESPACES += \

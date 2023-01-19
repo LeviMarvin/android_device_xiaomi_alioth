@@ -1,0 +1,2 @@
+allow mediaprovider zygote:unix_stream_socket { getopt };
+allow mediaprovider mediametrics_service:service_manager { find };
