@@ -63,7 +63,6 @@ BOARD_KERNEL_SEPARATED_DTBO := true
 # Kernel: Set args of mkbootimg.
 BOARD_MKBOOTIMG_ARGS := --header_version $(BOARD_BOOT_HEADER_VERSION)
 KERNEL_LD := LD=ld.lld
-TARGET_KERNEL_ADDITIONAL_FLAGS := DTC_EXT=$(shell pwd)/prebuilts/misc/linux-x86/dtc/dtc
 # Kernel: Do NOT append DTB.
 TARGET_KERNEL_APPEND_DTB := false
 # Kernel: Include DTB in boot.img.
@@ -77,10 +76,15 @@ TARGET_KERNEL_HEADER_ARCH := arm64
 ifeq ($(TARGET_PREBUILT_KERNEL),)
     # Kernel: Set config file for use in compiling.
     TARGET_KERNEL_CONFIG := alioth_lmperf_defconfig
-    # Kernel: Compile the kernel using Clang.
-    TARGET_KERNEL_CLANG_COMPILE := true
     # Kernel: Set the source path of kernel.
     TARGET_KERNEL_SOURCE := kernel/xiaomi/alioth
+    # Kernel: Build: Use clang.
+    TARGET_KERNEL_CLANG_COMPILE := true
+    # Kernel: Build: Use external dtc.
+    TARGET_KERNEL_ADDITIONAL_FLAGS := DTC_EXT=$(shell pwd)/prebuilts/misc/linux-x86/dtc/dtc
+    # Kernel: Build: Use external clang.
+    TARGET_KERNEL_CLANG_VERSION := WeebX
+    TARGET_KERNEL_CLANG_PATH := $(shell pwd)/prebuilts/clang/host/linux-x86/clang-weebx
 endif
 
 # Metadata
