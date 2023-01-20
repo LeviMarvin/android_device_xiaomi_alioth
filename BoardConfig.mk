@@ -10,7 +10,9 @@ AB_OTA_PARTITIONS += \
     system \
     system_ext \
     vbmeta \
-    vbmeta_system
+    vbmeta_system \
+    vendor \
+    vendor_boot
 
 # Architecture
 TARGET_ARCH := arm64
@@ -97,18 +99,25 @@ BOARD_FLASH_BLOCK_SIZE := 262144
 BOARD_USERDATAIMAGE_PARTITION_SIZE := 114135379968
 BOARD_VENDOR_BOOTIMAGE_PARTITION_SIZE := 100663296
 
-# Partitions: Set dynamic partitions.
-BOARD_ALIOTH_DYNAMIC_PARTITIONS_PARTITION_LIST := product system system_ext
+# Partitions: Set partitions.
+SSI_PARTITIONS := product system system_ext
+TREBLE_PARTITIONS := odm vendor
+ALL_PARTITIONS := $(SSI_PARTITIONS) $(TREBLE_PARTITIONS)
 # Partitions: Set the size of super partition.
 BOARD_SUPER_PARTITION_SIZE := 9126805504
 BOARD_SUPER_PARTITION_GROUPS := alioth_dynamic_partitions
-BOARD_ALIOTH_DYNAMIC_PARTITIONS_SIZE := 4559208448
-
-BOARD_PARTITION_LIST := $(call to-upper, $(BOARD_ALIOTH_DYNAMIC_PARTITIONS_PARTITION_LIST))
+BOARD_ALIOTH_DYNAMIC_PARTITIONS_PARTITION_LIST := $(ALL_PARTITIONS)
+BOARD_ALIOTH_DYNAMIC_PARTITIONS_SIZE := 9122611200
 # Partitions: Set filesystem type for all partitions.
-$(foreach p, $(BOARD_PARTITION_LIST), $(eval BOARD_$(p)IMAGE_FILE_SYSTEM_TYPE := ext4))
-$(foreach p, $(BOARD_PARTITION_LIST), $(eval TARGET_COPY_OUT_$(p) := $(call to-lower, $(p))))
-
+$(foreach p, $(call to-upper, $(ALL_PARTITIONS)), \
+    $(eval BOARD_$(p)IMAGE_FILE_SYSTEM_TYPE := ext4) \
+    $(eval TARGET_COPY_OUT_$(p) := $(call to-lower, $(p))))
+# Partitions: Set partition size.
+SSI_PARTITIONS_RESERVED_SIZE := 30720000
+$(foreach p, $(call to-upper, $(SSI_PARTITIONS)), \
+    $(eval BOARD_$(p)IMAGE_PARTITION_RESERVED_SIZE := $(SSI_PARTITIONS_RESERVED_SIZE)))
+$(foreach p, $(call to-upper, $(TREBLE_PARTITIONS)), \
+    $(eval BOARD_$(p)IMAGE_PARTITION_RESERVED_SIZE := 30720000))
 # Partitions: Set the type of filesystem of /userdata.
 BOARD_USERDATAIMAGE_FILE_SYSTEM_TYPE := f2fs
 
