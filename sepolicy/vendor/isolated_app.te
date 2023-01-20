@@ -1,2 +1,3 @@
-allow isolated_app content_capture_service:service_manager { find };
+# This rule is conflict with the policy in android/system/sepolicy/vendor/isolated_app.te.
+#allow isolated_app content_capture_service:service_manager { find };
 allow isolated_app app_data_file:file setattr;
