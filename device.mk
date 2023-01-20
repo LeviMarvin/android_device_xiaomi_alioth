@@ -69,12 +69,16 @@ PRODUCT_USE_DYNAMIC_PARTITIONS := true
 # Partitions: Do NOT compile the super partition.
 PRODUCT_BUILD_SUPER_PARTITION := false
 
+# Power
+PRODUCT_PACKAGES += \
+    android.hardware.power
+
 # Properties
 TARGET_VENDOR_PROP += $(DEVICE_PATH)/vendor.prop
 
 # Runtime Resources Overlay
 PRODUCT_PACKAGES += \
-    WifiResCommon \
+    WifiResCommon
 
 # SEPolicy
 include device/qcom/sepolicy_vndr-legacy-um/SEPolicy.mk
@@ -94,10 +98,10 @@ PRODUCT_PACKAGES += \
     otapreopt_script \
     update_engine \
     update_engine_sideload \
-    update_verifier \
+    update_verifier
 
 PRODUCT_PACKAGES_DEBUG += \
-    update_engine_client \
+    update_engine_client
 
 # Vendor boot
 # Vendor boot: Copy the fstab file to vendor ramdisk
