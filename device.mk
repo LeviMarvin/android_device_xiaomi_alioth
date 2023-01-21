@@ -96,6 +96,7 @@ PRODUCT_SOONG_NAMESPACES += \
 # Update engine
 PRODUCT_PACKAGES += \
     otapreopt_script \
+    checkpoint_gc \
     update_engine \
     update_engine_sideload \
     update_verifier
